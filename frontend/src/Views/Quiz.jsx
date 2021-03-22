@@ -12,14 +12,15 @@ const Quiz = () => {
                 <div className='align-self-center pb-5'>
                 <Card style={{ width: '20rem' }}>
                     <Card.Body>
-                        <Card.Title>Question #{id}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                        <Card.Title>#{id}) Lorem Ipsum?</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">Select one of the following</Card.Subtitle>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia perspiciatis fuga ea aliquid at nostrum earum odit facilis consectetur natus?
                         </Card.Text>
-                        <Link to={`${parseInt(id) - 1}`}>Previous</Link>
-                        <Link to={`${parseInt(id) + 1}`}>Next</Link>
+                        <div className='d-flex justify-content-between'>
+                            <Link to={`${parseInt(id) - 1}`}>Previous</Link>
+                            <Link to={`${parseInt(id) + 1}`}>Next</Link>
+                        </div>
                     </Card.Body>
                 </Card>
                 </div>
