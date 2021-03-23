@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import Navigation from '../Components/Navigation'
 
 const Landing = () => {
     return (
         <div>
-            <Link to='/quiz/1'>Quiz</Link>
+            <Navigation />
         </div>
     )
 }

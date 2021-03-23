@@ -25,7 +25,7 @@ function App() {
               <Landing />
           </Route>
           <Route path='/quiz/:id'>
-              <Quiz/>
+              <Quiz answers={answers} setAnswers={setAnswers}/>
           </Route>
         </Switch>
       </Router>
