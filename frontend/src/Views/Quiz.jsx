@@ -58,7 +58,7 @@ const Quiz = ({ answers, setAnswers }) => {
                             }
                             {id < 10 ? 
                                 <Link to={`${parseInt(id) + 1}`}>Next</Link> : 
-                                <Link to={`${parseInt(id) + 1}`}><Button variant="primary" size='sm'>Submit</Button></Link>
+                                <Link to='/'><Button variant="primary" size='sm' onClick={() => alert(JSON.stringify(answers))}>Submit</Button></Link>
                             }
                         </div>
                     </Card.Body>

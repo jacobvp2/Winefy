@@ -25,7 +25,7 @@ const Choice = () => {
                         <Card.Title>Use your Twitter!</Card.Title>
                         <Card.Subtitle className="mb-2 text-muted">How does this work?</Card.Subtitle>
                         <Card.Text>Our algorithm determines your personality based on your public tweets. It then determines what wine you would enjoy the best!</Card.Text>
-                        <Link to='/quiz/1'><Button variant="primary" className='float-right'>Go!</Button></Link>
+                        <Link to='/twitter'><Button variant="primary" className='float-right'>Go!</Button></Link>
                     </Card.Body>
                 </Card>
                 </div>

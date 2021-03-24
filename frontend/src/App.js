@@ -7,11 +7,12 @@ import {
 import Landing from './Views/Landing';
 import Quiz from './Views/Quiz';
 import Choice from './Views/Choice';
+import Twitter from './Views/Twitter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [answers, setAnswers] = useState({
-  })
+  const [answers, setAnswers] = useState({})
+  const [username, setUsername] = useState('')
 
   return (
     <div className="App">
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path='/choice'>
             <Choice />
+          </Route>
+          <Route path='/twitter'>
+            <Twitter username={username} setUsername={setUsername} />
           </Route>
         </Switch>
       </Router>
