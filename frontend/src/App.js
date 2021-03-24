@@ -6,15 +6,11 @@ import {
 } from "react-router-dom";
 import Landing from './Views/Landing';
 import Quiz from './Views/Quiz';
+import Choice from './Views/Choice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [answers, setAnswers] = useState({
-    '1': 'A',
-    '2': 'A',
-    '3': 'A',
-    '4': 'A',
-    '5': 'A',
   })
 
   return (
@@ -22,10 +18,13 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-              <Landing />
+            <Landing />
           </Route>
           <Route path='/quiz/:id'>
-              <Quiz answers={answers} setAnswers={setAnswers}/>
+            <Quiz answers={answers} setAnswers={setAnswers}/>
+          </Route>
+          <Route path='/choice'>
+            <Choice />
           </Route>
         </Switch>
       </Router>

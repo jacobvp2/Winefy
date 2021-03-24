@@ -52,8 +52,11 @@ const Quiz = ({ answers, setAnswers }) => {
                             </Form.Group>
                         </Form>
                         <div className='d-flex justify-content-between'>
-                            {id > 1 ? <Link to={`${parseInt(id) - 1}`}>Previous</Link> : 'Previous'}
-                            {id <= 10 ? 
+                            {id > 1 ?
+                                <Link to={`${parseInt(id) - 1}`}>Previous</Link> :
+                                <Link to='/choice'><Button variant="outline-danger" size='sm'>Back</Button></Link>
+                            }
+                            {id < 10 ? 
                                 <Link to={`${parseInt(id) + 1}`}>Next</Link> : 
                                 <Link to={`${parseInt(id) + 1}`}><Button variant="primary" size='sm'>Submit</Button></Link>
                             }
