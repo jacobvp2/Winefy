@@ -8,7 +8,7 @@ const Choice = () => {
     return (
         <div>
             <Navigation/>
-            <div className='d-flex justify-content-around vh-100 container'>
+            <div className='d-flex justify-content-around vh-100 container flex-wrap'>
                 <div className='align-self-center pb-5'>
                 <Card style={{ width: '20rem' }}>
                     <Card.Body>
