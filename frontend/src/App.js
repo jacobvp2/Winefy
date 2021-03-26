@@ -8,6 +8,7 @@ import Landing from './Views/Landing';
 import Quiz from './Views/Quiz';
 import Choice from './Views/Choice';
 import Twitter from './Views/Twitter';
+import Results from './Views/Results';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path='/twitter'>
             <Twitter username={username} setUsername={setUsername} />
+          </Route>
+          <Route path='/results'>
+            <Results />
           </Route>
         </Switch>
       </Router>
