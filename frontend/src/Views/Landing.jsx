@@ -15,7 +15,7 @@ const Landing = () => {
            <Container fluid>
                     <Row className="justify-content-md-center">
                         <Link to='/choice'><Button variant="danger" size="lg">
-                    Take the Quiz!
+                    Find Your Wine!
                     </Button>{' '}</Link>
                     </Row>
                     </Container>
