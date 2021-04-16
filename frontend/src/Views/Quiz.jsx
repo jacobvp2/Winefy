@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Navigation from '../Components/Navigation'
+import { questionBank } from '../Util/QuizBank'
 
 const Quiz = ({ answers, setAnswers }) => {
     let { id } = useParams();
@@ -14,6 +15,20 @@ const Quiz = ({ answers, setAnswers }) => {
         }))
     }
 
+    const findPersonality = (ans) => {
+        // counts order is E, N, T, P, I, S, F, J
+        let arr = Object.values(ans)
+        let counts = [0,0,0,0,0,0,0,0]
+        for (let i = 0; i < arr.length - 4; i++) {
+            counts[i % 8] += parseInt(arr[i])
+        }
+        let personality = counts[0] > counts[4] ? "E" : "I";
+        personality += counts[1] > counts[5] ? "N" : "S";
+        personality += counts[2] > counts[6] ? "T" : "F";
+        personality += counts[3] > counts[7] ? "P" : "J";
+        return personality;
+    }
+
     return (
         <div>
             <Navigation />
@@ -21,33 +36,33 @@ const Quiz = ({ answers, setAnswers }) => {
                 <div className='align-self-center pb-5'>
                 <Card style={{ width: '20rem' }}>
                     <Card.Body>
-                        <Card.Title>#{id}) Lorem Ipsum?</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">Select one of the following</Card.Subtitle>
+                        <Card.Title>#{id}) {questionBank[id - 1]}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">Select one of the following:</Card.Subtitle>
                         <Form onChange={updateAnswers}>
                             <Form.Group>
                                 <Form.Check 
                                     type={'radio'}
                                     name={id}
                                     id={`${id}A`}
-                                    label='A'
-                                    value='A'
-                                    checked={answers[id] == 'A' && 'checked'}
+                                    label='Agree'
+                                    value={1}
+                                    checked={answers[id] == 1 && 'checked'}
                                 />
                                 <Form.Check 
                                     type={'radio'}
                                     name={id}
                                     id={`${id}B`}
-                                    label='B'
-                                    value='B'
-                                    checked={answers[id] == 'B' && 'checked'}
+                                    label='Neither Agree nor Disagree'
+                                    value={0}
+                                    checked={answers[id] == 0 && 'checked'}
                                 />
                                 <Form.Check 
                                     type={'radio'}
                                     name={id}
                                     id={`${id}C`}
-                                    label='C'
-                                    value='C'
-                                    checked={answers[id] == 'C' && 'checked'}
+                                    label='Disagree'
+                                    value={-1}
+                                    checked={answers[id] == -1 && 'checked'}
                                 />
                             </Form.Group>
                         </Form>
@@ -56,9 +71,9 @@ const Quiz = ({ answers, setAnswers }) => {
                                 <Link to={`${parseInt(id) - 1}`}>Previous</Link> :
                                 <Link to='/choice'><Button variant="outline-danger" size='sm'>Back</Button></Link>
                             }
-                            {id < 10 ? 
+                            {id < 20 ? 
                                 <Link to={`${parseInt(id) + 1}`}>Next</Link> : 
-                                <Link to='/results'><Button variant="primary" size='sm' onClick={() => alert(JSON.stringify(answers))}>Submit</Button></Link>
+                                <Link to={`/results/${findPersonality(answers)}`}><Button variant="primary" size='sm'>Submit</Button></Link>
                             }
                         </div>
                     </Card.Body>

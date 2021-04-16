@@ -31,7 +31,7 @@ function App() {
           <Route path='/twitter'>
             <Twitter username={username} setUsername={setUsername} />
           </Route>
-          <Route path='/results'>
+          <Route path='/results/:id'>
             <Results />
           </Route>
         </Switch>

@@ -28,7 +28,7 @@ const Twitter = ({ username, setUsername }) => {
                         </Form>
                         <div className='d-flex justify-content-between'>
                             <Link to='/choice'><Button variant="outline-danger" size='sm'>Back</Button></Link>
-                            <Link to='/'><Button variant="primary" size='sm' onClick={() => alert(username)}>Submit</Button></Link>
+                            <Link to='/results'><Button variant="primary" size='sm' onClick={() => alert(username)}>Submit</Button></Link>
                         </div>
                     </Card.Body>
                 </Card>
