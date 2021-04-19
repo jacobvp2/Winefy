@@ -74,7 +74,7 @@ const Quiz = ({ answers, setAnswers }) => {
                             {id < 20 ? 
                                 <Link to={`${parseInt(id) + 1}`}>Next</Link> : 
                                 <Link to={Object.keys(answers).length >= 20 ? `/results/${findPersonality(answers)}` : "20"}>
-                                    <Button variant="primary" size='sm' onClick={() => {if (Object.keys(answers).length < 20) {alert("Please answer all of the questions to reveal your wine")}}}>
+                                    <Button variant="primary" size='sm' onClick={() => {if (Object.keys(answers).length < 20) {alert("Please answer all of the questions to reveal your wine.")}}}>
                                         Submit
                                     </Button>
                                 </Link>
