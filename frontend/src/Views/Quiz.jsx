@@ -68,13 +68,13 @@ const Quiz = ({ answers, setAnswers }) => {
                         </Form>
                         <div className='d-flex justify-content-between'>
                             {id > 1 ?
-                                <Link to={`${parseInt(id) - 1}`}>Previous</Link> :
+                                <Link to={`${parseInt(id) - 1}`} className='text-danger'>Previous</Link> :
                                 <Link to='/choice'><Button variant="outline-danger" size='sm'>Back</Button></Link>
                             }
-                            {id < 20 ? 
-                                <Link to={`${parseInt(id) + 1}`}>Next</Link> : 
-                                <Link to={Object.keys(answers).length >= 20 ? `/results/${findPersonality(answers)}` : "20"}>
-                                    <Button variant="primary" size='sm' onClick={() => {if (Object.keys(answers).length < 20) {alert("Please answer all of the questions to reveal your wine.")}}}>
+                            {id < questionBank.length ? 
+                                <Link to={`${parseInt(id) + 1}`} style={{color: '#ff5353'}}>Next</Link> : 
+                                <Link to={Object.keys(answers).length >= questionBank.length ? `/results/${findPersonality(answers)}` : questionBank.length}>
+                                    <Button variant="danger" style={{backgroundColor: '#ff5353'}} size='sm' onClick={() => {if (Object.keys(answers).length < questionBank.length) {alert("Please answer all of the questions to reveal your wine.")}}}>
                                         Submit
                                     </Button>
                                 </Link>

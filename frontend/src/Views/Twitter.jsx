@@ -1,15 +1,44 @@
-import React from 'react'
-import { Link, useParams } from "react-router-dom";
+import React, { useState } from 'react'
+import { Link, useParams, useHistory } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Axios from 'axios';
 import Navigation from '../Components/Navigation'
 
 const Twitter = ({ username, setUsername }) => {
 
     const updateUsername = (e) => {
         setUsername(e.target.value)
-        console.log(e.target.value)
+    }
+
+    const history = useHistory();
+
+    const api = Axios.create({
+        timeout: 50000,
+        mode: 'no-cors',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+        },
+        "X-Requested-With": "XMLHttpRequest",
+      });
+    Axios.defaults.baseURL = "http://127.0.0.1:5000/"
+
+    const getPersonality = (handle) => {
+        if (handle.substring(0,1) === '@') {
+            handle = handle.substring(1);
+        }
+        let personality = "INFP"
+        api.post('/tweet_pred', {
+            'handle': handle
+        }).then((res) => {
+            personality = res.data.type
+        }).catch((err) => {
+            console.log(err)
+        }).then(() => {
+            history.push(`/results/${personality}`)
+        });
     }
 
     return (
@@ -28,7 +57,7 @@ const Twitter = ({ username, setUsername }) => {
                         </Form>
                         <div className='d-flex justify-content-between'>
                             <Link to='/choice'><Button variant="outline-danger" size='sm'>Back</Button></Link>
-                            <Link to='/results'><Button variant="primary" size='sm' onClick={() => alert(username)}>Submit</Button></Link>
+                            <Button variant="primary" size='sm' onClick={() => getPersonality(username)}>Submit</Button>
                         </div>
                     </Card.Body>
                 </Card>

@@ -9,6 +9,7 @@ import Quiz from './Views/Quiz';
 import Choice from './Views/Choice';
 import Twitter from './Views/Twitter';
 import Results from './Views/Results';
+import Wines from './Views/Wines';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path='/results/:id'>
             <Results />
+          </Route>
+          <Route path='/wines'>
+           <Wines />
           </Route>
         </Switch>
       </Router>

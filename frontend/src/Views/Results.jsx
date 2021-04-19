@@ -22,7 +22,6 @@ const Landing = () => {
            <CardDeck className="justify-content-md-center">
              
               <Card>
-                <Card.Img variant="top" src="holder.js/100px160" />
                 <Card.Body>
                   <Card.Title>{wineMap[id]['red']['name']}</Card.Title>
                   <Card.Text>
@@ -37,7 +36,6 @@ const Landing = () => {
                 </Card.Footer>
               </Card>
               <Card>
-                <Card.Img variant="top" src="holder.js/100px160" />
                 <Card.Body>
                   <Card.Title>{wineMap[id]['white']['name']}</Card.Title>
                   <Card.Text>
@@ -55,7 +53,7 @@ const Landing = () => {
             
             </div>
             <div className="heading2-choice">Quick Terminology</div>
-            <div className="result-text">
+            <div className="result-text pb-5 container">
             <Row>
             <Col>Acidity: Refers to the liveliness and crispness of the wine; the fresh, tart, and sour attributes of the wine. High acidity makes a wine taste too sharp and sour, and low acidity makes a wine flat with less defined flavors. Higher acidity also makes for a more crisp color, and lower acidity makes for a darker or muddier colored wine.</Col>
             <Col>Body: Describes how heavy or light a wine feels in your mouth; a tactile sensation describing a wines weight and fullness. A wine can be light, medium, or full bodied. Full bodied wines contain the highest alcohol content, and they are fuller in the mouth. Medium bodied wines are a perfect transition for people who want to try light wines with more fullness. Light bodied wines are delicate and lean, and they typically contain the lowest amount of alcohol content.</Col>
