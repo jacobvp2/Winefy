@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Navigation from '../Components/Navigation'
+import { questionBank } from '../Util/QuizBank';
 
 const Choice = () => {
     return (
@@ -15,7 +16,7 @@ const Choice = () => {
                 <Card style={{ width: '20rem' }}>
                     <Card.Body>
                         <Card.Title>Take the Quiz!</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">20 Multiple Choice Questions</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">{questionBank.length} Multiple Choice Questions</Card.Subtitle>
                         <Card.Text>Take a short quiz to find what wine suits you the best based on your personality!</Card.Text>
                         <Link to='/quiz/1'><Button variant="primary" className='float-right'>Go!</Button></Link>
                     </Card.Body>

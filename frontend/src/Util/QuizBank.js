@@ -7,7 +7,7 @@ export let questionBank = [
     "I am a visual learner.",
     "I feel uneasy if my actions disrupt harmony in my social circle.",
     "I like to complete my work before playing.",
-    "I like to share my ideas with others.",
+    "I feel comfortable in crowds.",
     "I solve problems by leaping between different ideas and possibilities.",
     "I don't let other people influence my thoughts or actions.",
     "I can easily adjust to a change in decision.",
